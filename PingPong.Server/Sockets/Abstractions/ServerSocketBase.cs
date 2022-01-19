@@ -1,4 +1,5 @@
-﻿using PingPong.Server.Listeners.Abstractions;
+﻿using PingPong.Common.Sockets.Client.Abstractions;
+using PingPong.Server.Listeners.Abstractions;
 using System.Threading.Tasks;
 
 namespace PingPong.Server.Sockets.Abstractions
@@ -14,7 +15,7 @@ namespace PingPong.Server.Sockets.Abstractions
             _port = port;
         }
 
-        public abstract Task Accept();
+        public abstract Task<ClientSocketBase<string>> Accept();
         public abstract Task Bind();
         public abstract Task Listen();
         public abstract Task Close();
