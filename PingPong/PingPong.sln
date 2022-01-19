@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PingPong", "PingPong.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PingPong.IO", "..\PingPong.IO\PingPong.IO.csproj", "{B699AF9A-3304-482D-BF8D-F56B5BE0A2B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingPong.Server", "..\PingPong.Server\PingPong.Server.csproj", "{E17EA679-9EAA-4781-9172-16AF0AAFB3FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PingPong.Server", "..\PingPong.Server\PingPong.Server.csproj", "{E17EA679-9EAA-4781-9172-16AF0AAFB3FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingPong.Common", "..\PingPong.Common\PingPong.Common.csproj", "{2A594211-1AD9-4842-885F-A08AAFDE0CF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PingPong.Common", "..\PingPong.Common\PingPong.Common.csproj", "{2A594211-1AD9-4842-885F-A08AAFDE0CF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
