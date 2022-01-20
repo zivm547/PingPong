@@ -27,6 +27,11 @@ namespace PingPong.Networking.Wrappers.Sockets.ClientSockets
             await Task.Run(() => _socket.Connect(endPoint));
         }
 
+        public override int Available()
+        {
+            return _socket.Available;
+        }
+
         public override async Task<byte[]> Receive()
         {
             var buffer = new List<byte>();

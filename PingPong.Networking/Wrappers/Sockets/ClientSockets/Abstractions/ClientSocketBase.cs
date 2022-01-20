@@ -5,6 +5,7 @@ namespace PingPong.Networking.Wrappers.Sockets.ClientSockets.Abstractions
 {
     public abstract class ClientSocketBase
     {
+        public abstract int Available();
         public abstract Task Connect(EndPoint endPoint);
         public abstract Task Send(byte[] buffer);
         public abstract Task<byte[]> Receive();

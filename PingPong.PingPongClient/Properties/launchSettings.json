@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "PingPong.PingPongClient": {
+      "commandName": "Project"
+    }
+  }
+}

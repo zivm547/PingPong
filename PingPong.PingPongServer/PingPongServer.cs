@@ -59,11 +59,14 @@ namespace PingPong.PingPongServer
             {
                 try
                 {
-                    string message;
-                    var clientMessage = await newClient.Receive();
-                    _byteToStringConverter.TryConvert(clientMessage, out message);
+                    if (newClient.Available() > 0)
+                    {
+                        string message;
+                        var clientMessage = await newClient.Receive();
+                        _byteToStringConverter.TryConvert(clientMessage, out message);
 
-                    await newClient.Send(clientMessage);
+                        await newClient.Send(clientMessage);
+                    }
                 }
                 catch (Exception e)
                 {
