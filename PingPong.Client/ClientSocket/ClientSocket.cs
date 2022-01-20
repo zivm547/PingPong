@@ -19,20 +19,25 @@ namespace PingPong.Client.ClientSocket
 
         public override async Task Connect()
         {
-            await _socket.ConnectAsync(_ipAddress, (int)_port);
+            await Task.Run(()=> _socket.Connect(_ipAddress, (int)_port));
         }
 
-        public override string Read()
+        public override async Task<string> Read()
         {
-            var message = new List<Byte>();
-            _socket.Receive((IList<ArraySegment<byte>>)message);
-            return Encoding.ASCII.GetString(message.ToArray());
+            var buffer = new List<Byte>();
+
+            _socket.Receive((IList<ArraySegment<byte>>)buffer);
+
+            var decode = Task.Run(() => Encoding.ASCII.GetString(buffer.ToArray()));
+            var message = await decode;
+
+            return message;
         }
 
-        public override void Write(string outputObject)
+        public override async Task Write(string outputObject)
         {
             var message = Encoding.ASCII.GetBytes(outputObject);
-            _socket.Send(message);
+            await Task.Run(()=> _socket.Send(message));
         }
     }
 }

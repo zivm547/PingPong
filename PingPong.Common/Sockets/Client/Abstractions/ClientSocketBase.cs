@@ -16,7 +16,7 @@ namespace PingPong.Common.Sockets.Client.Abstractions
         }
 
         public abstract Task Connect();
-        public abstract T Read();
-        public abstract void Write(T outputObject);
+        public abstract Task<T> Read();
+        public abstract Task Write(T outputObject);
     }
 }

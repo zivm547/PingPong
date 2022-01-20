@@ -1,7 +1,9 @@
-﻿namespace PingPong.IO.Outputs
+﻿using System.Threading.Tasks;
+
+namespace PingPong.IO.Outputs
 {
     public interface IWriter<T>
     {
-        void Write(T outputObject);
+        Task Write(T outputObject);
     }
 }
