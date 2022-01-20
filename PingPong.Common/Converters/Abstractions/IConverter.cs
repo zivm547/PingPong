@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace PingPong.Common.Converters.Abstractions
+﻿namespace PingPong.Common.Converters.Abstractions
 {
     public interface IConverter<TSourceObject, TOutputObject>
     {
