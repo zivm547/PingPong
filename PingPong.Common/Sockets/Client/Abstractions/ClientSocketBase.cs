@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace PingPong.Common.Sockets.Client.Abstractions
 {
-    public abstract class ClientSocketBase<T> : IConnectable, IOutput<T>, IInput<T>
+    public abstract class ClientSocketBase<T> : IConnectable, IWriter<T>, IReader<T>
     {
         protected readonly string _ipAddress;
         protected readonly uint _port;
@@ -16,7 +16,7 @@ namespace PingPong.Common.Sockets.Client.Abstractions
         }
 
         public abstract Task Connect();
-        public abstract T GetInputObject();
-        public abstract void SendOutput(T outputObject);
+        public abstract T Read();
+        public abstract void Write(T outputObject);
     }
 }

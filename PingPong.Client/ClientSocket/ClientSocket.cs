@@ -22,14 +22,14 @@ namespace PingPong.Client.ClientSocket
             await _socket.ConnectAsync(_ipAddress, (int)_port);
         }
 
-        public override string GetInputObject()
+        public override string Read()
         {
             var message = new List<Byte>();
             _socket.Receive((IList<ArraySegment<byte>>)message);
             return Encoding.ASCII.GetString(message.ToArray());
         }
 
-        public override void SendOutput(string outputObject)
+        public override void Write(string outputObject)
         {
             var message = Encoding.ASCII.GetBytes(outputObject);
             _socket.Send(message);
