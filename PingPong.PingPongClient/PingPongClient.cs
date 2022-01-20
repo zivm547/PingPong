@@ -14,12 +14,12 @@ namespace PingPong.PingPongClient
         private ClientSocketBase _socket;
         private IConverter<string,byte[]> _stringToByteConverter;
         private IConverter<byte[],string> _byteToStringConverter;
-        private IReader<string> _inputSource;
-        private IWriter<string> _output;
+        private IInput<string> _inputSource;
+        private IOutput<string> _output;
 
         public PingPongClient(ClientSocketBase socket,
-                            IReader<string> inputSource,
-                            IWriter<string> output,
+                            IInput<string> inputSource,
+                            IOutput<string> output,
                             StringToBytesConverter stringToByteConverter, 
                             IConverter<byte[], string> byteToStringConverter)
         {
