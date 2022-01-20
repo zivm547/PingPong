@@ -2,7 +2,7 @@
 
 namespace PingPong.IO.Outputs
 {
-    public interface IWriter<T>
+    public interface IOutput<T>
     {
         Task Write(T outputObject);
     }

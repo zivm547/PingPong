@@ -2,7 +2,7 @@
 
 namespace PingPong.IO.Inputs 
 {
-    public interface IReader<T>
+    public interface IInput<T>
     {
         Task<T> Read();
     }
