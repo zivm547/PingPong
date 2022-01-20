@@ -5,7 +5,7 @@ namespace PingPong.Server.Listeners.Abstractions
 {
     public interface IListener
     {
-        Task Listen();
+        Task Listen(int numberOfConnections);
         Task<ClientSocketBase<string>> Accept();
     }
 }

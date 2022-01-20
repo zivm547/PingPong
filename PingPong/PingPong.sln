@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PingPong", "PingPong.csproj", "{9EAD8703-37D7-4877-AAF7-60B0B6C4573B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PingPong.IO", "..\PingPong.IO\PingPong.IO.csproj", "{B699AF9A-3304-482D-BF8D-F56B5BE0A2B5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PingPong.Server", "..\PingPong.Server\PingPong.Server.csproj", "{E17EA679-9EAA-4781-9172-16AF0AAFB3FA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PingPong.Common", "..\PingPong.Common\PingPong.Common.csproj", "{2A594211-1AD9-4842-885F-A08AAFDE0CF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingPong.Client", "..\PingPong.Client\PingPong.Client.csproj", "{A5E423D5-2297-495C-A157-98BBBEF88C3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PingPong.Client", "..\PingPong.Client\PingPong.Client.csproj", "{A5E423D5-2297-495C-A157-98BBBEF88C3A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PingPong", "PingPong.csproj", "{2D4BDF9C-04A8-40B5-BE04-796C8768C2D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9EAD8703-37D7-4877-AAF7-60B0B6C4573B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9EAD8703-37D7-4877-AAF7-60B0B6C4573B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9EAD8703-37D7-4877-AAF7-60B0B6C4573B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9EAD8703-37D7-4877-AAF7-60B0B6C4573B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B699AF9A-3304-482D-BF8D-F56B5BE0A2B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B699AF9A-3304-482D-BF8D-F56B5BE0A2B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B699AF9A-3304-482D-BF8D-F56B5BE0A2B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{A5E423D5-2297-495C-A157-98BBBEF88C3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5E423D5-2297-495C-A157-98BBBEF88C3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5E423D5-2297-495C-A157-98BBBEF88C3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D4BDF9C-04A8-40B5-BE04-796C8768C2D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D4BDF9C-04A8-40B5-BE04-796C8768C2D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D4BDF9C-04A8-40B5-BE04-796C8768C2D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D4BDF9C-04A8-40B5-BE04-796C8768C2D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

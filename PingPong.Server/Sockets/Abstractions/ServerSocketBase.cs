@@ -17,7 +17,7 @@ namespace PingPong.Server.Sockets.Abstractions
 
         public abstract Task<ClientSocketBase<string>> Accept();
         public abstract Task Bind();
-        public abstract Task Listen();
+        public abstract Task Listen(int numberOfConnections);
         public abstract Task Close();
     }
 }
