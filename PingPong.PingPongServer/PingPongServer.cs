@@ -37,12 +37,14 @@ namespace PingPong.PingPongServer
         {
             await _serverListener.Bind(_endPoint);
             await _serverListener.Listen();
+            Console.WriteLine("Awaiting Clients");
 
             while (true)
             {
                 token.ThrowIfCancellationRequested();
 
                 var newClientSocket = await _serverListener.Accept();
+                Console.WriteLine($"Accepted Client: {newClientSocket}");
 
                 var clientSocket =_clientSocketFactory.CreateNewClientSocket(newClientSocket);
 

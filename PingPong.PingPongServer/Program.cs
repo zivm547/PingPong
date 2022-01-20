@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace PingPong.PingPongServer
 {
@@ -6,7 +7,15 @@ namespace PingPong.PingPongServer
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var port = int.Parse(args[0]);
+            var ip = "127.0.0.1";
+
+            Bootstrapper bootstrapper = new Bootstrapper();
+            var server = bootstrapper.InitializeServer(ip, port);
+
+            var tokenSource = new CancellationTokenSource();
+
+            server.StartServer(tokenSource.Token).GetAwaiter().GetResult();
         }
     }
 }

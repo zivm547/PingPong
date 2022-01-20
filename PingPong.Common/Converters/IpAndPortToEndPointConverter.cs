@@ -4,9 +4,9 @@ using System.Net;
 
 namespace PingPong.Common.Converters
 {
-    public class IpAndPortToEndPointConverter : IConverter<(string ip, int port), EndPoint>
+    public class IpAndPortToEndPointConverter : IConverter<(string ip, int port), IPEndPoint>
     {
-        public bool TryConvert((string ip, int port) sourceObject, out EndPoint outputObject)
+        public bool TryConvert((string ip, int port) sourceObject, out IPEndPoint outputObject)
         {
             IPEndPoint ipEndPoint;
             try
