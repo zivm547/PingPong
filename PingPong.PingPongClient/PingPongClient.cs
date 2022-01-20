@@ -1,10 +1,9 @@
-﻿using PingPong.Common.Sockets.Client.Abstractions;
+﻿using PingPong.Common.Converters;
+using PingPong.Common.Converters.Abstractions;
 using PingPong.IO.Inputs;
 using PingPong.IO.Outputs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using PingPong.Networking.Wrappers.Sockets.ClientSockets.Abstractions;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,20 +11,28 @@ namespace PingPong.PingPongClient
 {
     public class PingPongClient
     {
-        private ClientSocketBase<string> _socket;
+        private ClientSocketBase _socket;
+        private IConverter<string,byte[]> _stringToByteConverter;
+        private IConverter<byte[],string> _byteToStringConverter;
         private IReader<string> _inputSource;
         private IWriter<string> _output;
 
-        public PingPongClient(ClientSocketBase<string> socket, IReader<string> inputSource, IWriter<string> output)
+        public PingPongClient(ClientSocketBase socket,
+                            IReader<string> inputSource,
+                            IWriter<string> output,
+                            StringToBytesConverter stringToByteConverter, 
+                            IConverter<byte[], string> byteToStringConverter)
         {
             _socket = socket;
             _inputSource = inputSource;
             _output = output;
+            _stringToByteConverter = stringToByteConverter;
+            _byteToStringConverter = byteToStringConverter;
         }
 
-        public async Task StartConnection()
+        public async Task StartConnection(EndPoint endPoint)
         {
-            await _socket.Connect();
+            await _socket.Connect(endPoint);
         }
 
         public async Task StartPingPong(CancellationToken token)
@@ -46,8 +53,13 @@ namespace PingPong.PingPongClient
 
         private async Task SendServerMessage(string message)
         {
-            var writingMessageToServer = _socket.Write(message);
-            await writingMessageToServer;
+            byte[] buffer;
+
+            if (_stringToByteConverter.TryConvert(message, out buffer))
+            {
+                var writingMessageToServer = _socket.Send(buffer);
+                await writingMessageToServer;
+            }
         }
 
         private async Task<string> GetInput()
@@ -59,8 +71,15 @@ namespace PingPong.PingPongClient
 
         private async Task<string> ReceiveMessageFromServer()
         {
-            var receivingMessage = _socket.Read();
-            return await receivingMessage;
+            string response;
+            var receivingMessage = _socket.Receive();
+            var byteMessage = await receivingMessage;
+
+            if (_byteToStringConverter.TryConvert(byteMessage, out response))
+            {
+                return response;
+            }
+            return response;
         }
     }
 }
