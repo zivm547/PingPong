@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PingPong.Common\PingPong.Common.csproj" />
+    <ProjectReference Include="..\PingPong.ConsoleImplementation\PingPong.ConsoleImplementation.csproj" />
     <ProjectReference Include="..\PingPong.IO\PingPong.IO.csproj" />
     <ProjectReference Include="..\PingPong.Networking\PingPong.Networking.csproj" />
   </ItemGroup>

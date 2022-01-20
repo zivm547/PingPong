@@ -31,7 +31,7 @@ namespace PingPong.Networking.Wrappers.Sockets.ClientSockets
         {
             var buffer = new List<byte>();
 
-            await _socket.ReceiveAsync(buffer as IList<ArraySegment<byte>>, SocketFlags.None);
+            await Task.Run(()=> _socket.Receive(buffer as IList<ArraySegment<byte>>));
 
             return buffer.ToArray<byte>();
         }

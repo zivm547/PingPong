@@ -53,9 +53,7 @@ namespace PingPong.PingPongClient
 
         private async Task SendServerMessage(string message)
         {
-            byte[] buffer;
-
-            if (_stringToByteConverter.TryConvert(message, out buffer))
+            if (_stringToByteConverter.TryConvert(message, out byte[] buffer))
             {
                 var writingMessageToServer = _socket.Send(buffer);
                 await writingMessageToServer;

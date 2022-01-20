@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Threading;
 
 namespace PingPong.PingPongClient
 {
@@ -6,7 +6,15 @@ namespace PingPong.PingPongClient
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string ip = args[0];
+            int port = int.Parse(args[1]);
+
+            var tokenSource = new CancellationTokenSource();
+
+            var bootstrapper = new Bootstrapper();
+            var client = bootstrapper.InitializeClient(ip, port).GetAwaiter().GetResult();
+
+            client.StartPingPong(tokenSource.Token).GetAwaiter().GetResult();
         }
     }
 }

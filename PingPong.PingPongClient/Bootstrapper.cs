@@ -1,18 +1,17 @@
 ﻿using PingPong.Common.Converters;
+using PingPong.ConsoleImplementation.Inputs;
+using PingPong.ConsoleImplementation.Outputs;
 using PingPong.Networking.Wrappers.Sockets.ClientSockets;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PingPong.PingPongClient
 {
     public class Bootstrapper
     {
-        public PingPongClient InitializeClient(string ip, int port)
+        public async Task<PingPongClient> InitializeClient(string ip, int port)
         {
             var stringToByte = new StringToBytesConverter();
             var byteToString = new BytesToStringConverter();
@@ -27,7 +26,13 @@ namespace PingPong.PingPongClient
             var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             var clientSocket = new ClientSocket(socket);
 
-            return null;
+            var consoleInput = new ConsoleInput();
+            var consoleOutput = new ConsoleOutput();
+
+            var client = new PingPongClient(clientSocket, consoleInput, consoleOutput, stringToByte, byteToString);
+            await client.StartConnection(serverEndPoint);
+
+            return client;
         }
     }
 }
